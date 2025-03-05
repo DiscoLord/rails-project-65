@@ -12,10 +12,12 @@ Rails.application.routes.draw do
   get 'manifest' => 'rails/pwa#manifest', as: :pwa_manifest
 
   # Defines the root path route ("/")
-  root "home#index"
 
   scope module: 'web' do
+    root "home#index"
+
     post 'auth/:provider', to: 'auth#request', as: :auth_request
     get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
+    delete 'logout', to: 'auth#destroy', as: :logout
   end
 end

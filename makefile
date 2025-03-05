@@ -12,3 +12,6 @@ test: prepare_test_db
 
 integration_tests:
 	bin/rails test test/integration
+
+setup-env:
+	cp .env.example .env
