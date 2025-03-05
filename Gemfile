@@ -63,6 +63,11 @@ group :test do
   gem 'selenium-webdriver'
 end
 
+gem 'faker'
+
+gem 'omniauth-github'
+gem 'omniauth-rails_csrf_protection'
+
 gem 'rollbar'
 
 gem 'rubocop-capybara', require: false
