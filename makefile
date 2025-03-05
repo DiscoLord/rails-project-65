@@ -1,6 +1,8 @@
 lint: 
-	bundle exec slim-lint app/views
 	bundle exec rubocop
+
+lintfix:
+	bundle exec rubocop -a
 
 prepare_test_db:
 	bin/rails db:test:prepare
