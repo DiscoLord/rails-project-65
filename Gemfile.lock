@@ -165,6 +165,7 @@ GEM
     parser (3.3.7.1)
       ast (~> 2.4.1)
       racc
+    pg (1.5.9)
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
@@ -220,6 +221,7 @@ GEM
     reline (0.6.0)
       io-console (~> 0.5)
     rexml (3.4.1)
+    rollbar (3.6.1)
     rubocop (1.73.2)
       json (~> 2.3)
       language_server-protocol (~> 3.17.0.2)
@@ -319,8 +321,10 @@ DEPENDENCIES
   debug
   jbuilder
   jsbundling-rails
+  pg
   puma (>= 5.0)
   rails (~> 7.2.2, >= 7.2.2.1)
+  rollbar
   rubocop-rails-omakase
   selenium-webdriver
   sprockets-rails
