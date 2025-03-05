@@ -1,8 +1,10 @@
-require:
+plugins: 
   - rubocop-minitest
   - rubocop-performance
   - rubocop-rails
   - rubocop-rake
+
+require:
   - rubocop-capybara
 
 AllCops:

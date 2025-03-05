@@ -2,7 +2,6 @@
 
 module Web
   class AuthController < ApplicationController
-
     def callback
       auth_data = request.env['omniauth.auth']
       user = User.find_or_initialize_by(email: auth_data['info']['email'])
@@ -10,14 +9,13 @@ module Web
       user.save!
       session[:user_id] = user.id
       redirect_to root_path, notice: "Добро пожаловать, #{user.name}!"
-
     rescue StandardError => e
       redirect_to root_path, alert: "Ошибка входа: #{e.message}"
     end
 
     def destroy
       session[:user_id] = nil
-      redirect_to root_path, notice: 'Вы вышли.'
+      redirect_to root_path, notice: t('logged_out')
     end
   end
 end

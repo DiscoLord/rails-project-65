@@ -29,3 +29,4 @@
 
 en:
   hello: "Hello world"
+  logged_out: "Вы вышли."
