@@ -1,0 +1,12 @@
+.row
+  .p-3.p-lg-5.pt-lg-0
+    .mb-4
+      h2 Объявления
+      hr
+    .row.mt-2
+      - @bulletins.each do |bulletin|
+        .col-3.pt-2
+          .card.shadow-sm
+            .card-body
+              h5.card-title
+                = link_to bulletin.title, bulletin

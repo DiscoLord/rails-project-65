@@ -2,7 +2,7 @@
 
 require 'test_helper'
 
-class CategoryTest < ActiveSupport::TestCase
+class BulletinTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

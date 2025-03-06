@@ -2,6 +2,8 @@
 
 module Web
   class AuthControllerTest < ActionDispatch::IntegrationTest
+    include Rails.application.routes.url_helpers
+
     test 'check github auth' do
       post auth_request_path('github')
 

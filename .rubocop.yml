@@ -6,6 +6,7 @@ plugins:
 
 require:
   - rubocop-capybara
+  - rubocop-slim
 
 AllCops:
   NewCops: enable

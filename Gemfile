@@ -50,6 +50,8 @@ group :development, :test do
   gem 'sqlite3', '>= 1.4'
 
   gem 'rubocop', require: false
+  gem 'rubocop-slim', require: false
+  gem 'slim_lint', require: false
 
   gem 'dotenv-rails'
 end
@@ -78,3 +80,6 @@ gem 'rubocop-performance', require: false
 gem 'rubocop-rails', require: false
 gem 'rubocop-rails-omakase', require: false
 gem 'rubocop-rake', require: false
+
+gem 'simple_form'
+gem 'slim-rails'

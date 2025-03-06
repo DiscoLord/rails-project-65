@@ -1,0 +1,9 @@
+= simple_form_for @bulletin do |f|
+  = f.input :title, label: 'Заголовок', input_html: { class: 'form-control string required' }
+  = f.input :description, label: 'Описание', as: :text, input_html: { class: 'form-control text required' }
+  = f.input :category_id,
+      label: 'Категория',
+      collection: @categories.map { |c| [c.name, c.id] },
+      input_html: { class: 'form-control select required' }
+
+  = f.submit 'Создать объявление', class: 'mt-4 btn btn-primary'

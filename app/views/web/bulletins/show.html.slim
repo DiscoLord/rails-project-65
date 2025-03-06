@@ -1,0 +1,12 @@
+.row
+  .p-3.p-lg-5.pt-lg-0
+    .mb-4
+      h2 = @bulletin.title
+      hr
+    .row
+      .col-8
+        p = @bulletin.description
+      .col-4
+        .card
+          .card-body
+            h1.h5.card-title = @bulletin.user.name
