@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Web
-  class BulletinsController < ApplicationController
+  class BulletinsController < Web::ApplicationController
     include AuthenticationConcern
     before_action :authenticate_user!, only: %i[new create]
 

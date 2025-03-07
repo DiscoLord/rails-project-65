@@ -1,0 +1,19 @@
+h1 = t('categories.index.title')
+
+= link_to t('categories.index.add'), new_category_path
+
+table.table.table-borderless
+  thead
+    tr
+      th = t('categories.index.id')
+      th = t('categories.index.name')
+      th = t('categories.index.actions')
+    tbody
+      - @categories.each do |category|
+        tr
+          td = category.id
+          td = category.name
+          td
+            = link_to t('categories.index.button.edit'), edit_category_path(category), class: 'me-1'
+            = link_to t('categories.index.button.delete'), category,
+              data: { turbo_method: :delete }, class: 'text-danger'

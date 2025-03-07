@@ -1,0 +1,20 @@
+ru:
+  simple_form:
+    required:
+      text: 'Обязательное поле'
+      mark: '*'
+    labels:
+      bulletin:
+        title: 'Заголовок'
+        description: 'Описание'
+        category_id: 'Категория'
+        image: 'Изображение'
+      category:
+        name: 'Название'
+  helpers:
+    submit:
+      category:
+        create: 'Создать категорию'
+        update: 'Сохранить категорию'
+      bulletin:
+        create: 'Создать объявление'

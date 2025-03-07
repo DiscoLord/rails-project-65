@@ -68,18 +68,15 @@ group :test do
 end
 
 gem 'faker'
-
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
-
+gem 'pundit'
 gem 'rollbar'
-
 gem 'rubocop-capybara', require: false
 gem 'rubocop-minitest', require: false
 gem 'rubocop-performance', require: false
 gem 'rubocop-rails', require: false
 gem 'rubocop-rails-omakase', require: false
 gem 'rubocop-rake', require: false
-
 gem 'simple_form'
 gem 'slim-rails'

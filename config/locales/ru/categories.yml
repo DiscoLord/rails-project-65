@@ -1,0 +1,23 @@
+ru:
+  categories:
+    edit:
+      title: 'Редактирование категорию'
+    index:
+      title: 'Категории'
+      add: 'Добавить категорию'
+      id: 'ID'
+      name: 'Название'
+      actions: 'Действия'
+      button:
+        edit: 'Редактировать'
+        delete: 'Удалить'
+    new:
+      title: 'Новая категория'
+  activerecord:
+    errors:
+      models:
+        category:
+          attributes:
+            name:
+              blank: 'Название не может быть пустым'
+              

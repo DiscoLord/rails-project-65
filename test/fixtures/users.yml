@@ -3,7 +3,9 @@
 one:
   name: user1
   email: user1@example.com
+  admin: false
 
 two:
   name: user2
   email: user2@example.com
+  admin: true
