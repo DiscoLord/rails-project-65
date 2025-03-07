@@ -8,7 +8,7 @@ module Admin
         @admin = users(:two)
         @category = categories(:one)
       end
-      
+
       test 'create category' do
         Category.create(name: 'test')
         category = Category.where(name: 'test')

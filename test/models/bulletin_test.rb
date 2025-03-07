@@ -44,7 +44,6 @@ class BulletinTest < ActiveSupport::TestCase
     assert_not bulletin.valid?
   end
 
-
   test 'should not be valid with an oversized image' do
     bulletin = Bulletin.new(title: 'Valid Title', description: 'Valid Description', user: @user, category: @category)
     bulletin.image.attach(io: File.open('test/fixtures/files/large_image.png'), filename: 'large_image.png',
