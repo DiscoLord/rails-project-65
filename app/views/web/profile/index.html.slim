@@ -1,0 +1,26 @@
+h1 = t('profile.index.title')
+hr
+= link_to t('profile.index.button.add'), new_bulletin_path
+
+table.table.table-borderless
+  thead
+    tr
+      th = t('profile.index.thead.title')
+      th = t('profile.index.thead.state')
+      th = t('profile.index.thead.created_at')
+      th = t('profile.index.thead.actions')
+    tbody
+      - @bulletins.each do |bulletin|
+        tr
+          td = bulletin.title
+          td = bulletin.state_label
+          td = distance_of_time_in_words(bulletin.created_at, Time.current)
+          td
+            = link_to t('profile.index.button.show'), bulletin_path(bulletin), class: 'me-1'
+            = link_to t('profile.index.button.edit'), edit_bulletin_path(bulletin), class: 'me-1'
+            - if bulletin.state == 'draft'
+              = link_to t('profile.index.button.send_to_moderation'), send_to_moderation_bulletin_path(bulletin),
+               data: { turbo_method: :patch }, class: 'me-1'
+            - unless bulletin.archived?
+              = link_to t('profile.index.button.archive'), archive_bulletin_path(bulletin),
+               data: { turbo_method: :patch }, class: 'text-danger'

@@ -14,6 +14,13 @@ module ActiveSupport
     fixtures :all
 
     # Add more helper methods to be used by all tests here...
+    def setup
+      @user = users(:one)
+      @admin = users(:two)
+      @guest = nil
+      @category = categories(:one)
+      @bulletin = bulletins(:one)
+    end
   end
 end
 

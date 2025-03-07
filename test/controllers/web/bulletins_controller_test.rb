@@ -1,21 +1,19 @@
 # frozen_string_literal: true
 
-require 'test_helper'
-
 module Web
   class BulletinsControllerTest < ActionDispatch::IntegrationTest
     test 'create bulletin' do
       bulletin = Bulletin.new(
         title: 'title',
         description: 'description',
-        user: users(:one),
-        category: categories(:one)
+        user: @user,
+        category: @category
       )
 
       bulletin.image.attach(
         io: Rails.root.join('test/fixtures/files/test_image.png').open,
         filename: 'test_image.png',
-        content_type: 'image/png'
+        content_type: 'image/jpg'
       )
       bulletin.save
 
@@ -28,20 +26,52 @@ module Web
       bulletin = Bulletin.new(
         title: 'title',
         description: 'description',
-        user: nil,
-        category: categories(:one)
+        user: @guest,
+        category: @category
       )
 
       bulletin.image.attach(
         io: Rails.root.join('test/fixtures/files/test_image.png').open,
         filename: 'test_image.png',
-        content_type: 'image/png'
+        content_type: 'image/jpg'
       )
       bulletin.save
 
       bulletins = Bulletin.where(title: 'title')
 
       assert_equal 0, bulletins.count
+    end
+
+    test 'guest cannot update bulletin' do
+      @bulletin.image.attach(
+        io: Rails.root.join('test/fixtures/files/test_image.png').open,
+        filename: 'test_image.png',
+        content_type: 'image/jpg'
+      )
+      bulletin = @bulletin.update(
+        title: 'up title',
+        description: 'description',
+        user: @guest,
+        category: @category
+      )
+
+      assert_not bulletin
+    end
+
+    test 'user can update bulletin' do
+      @bulletin.image.attach(
+        io: Rails.root.join('test/fixtures/files/test_image.png').open,
+        filename: 'test_image.png',
+        content_type: 'image/jpg'
+      )
+      bulletin = @bulletin.update(
+        title: 'up title',
+        description: 'description',
+        user: @user,
+        category: @category
+      )
+
+      assert bulletin
     end
   end
 end

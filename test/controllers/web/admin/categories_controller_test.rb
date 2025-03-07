@@ -3,12 +3,6 @@
 module Admin
   module Web
     class CategoriesControllerTest < ActionDispatch::IntegrationTest
-      def setup
-        @user = users(:one)
-        @admin = users(:two)
-        @category = categories(:one)
-      end
-
       test 'create category' do
         Category.create(name: 'test')
         category = Category.where(name: 'test')

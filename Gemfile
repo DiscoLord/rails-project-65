@@ -67,6 +67,7 @@ group :test do
   gem 'selenium-webdriver'
 end
 
+gem 'aasm'
 gem 'faker'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'

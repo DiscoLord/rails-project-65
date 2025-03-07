@@ -1,0 +1,26 @@
+.container
+  .row
+    .col-md-3
+      = render 'shared/admin/menu'
+    .col-md-9
+      h1 = t('bulletins_moderation.index.title')
+      table.table.table-borderless
+        thead
+          tr
+            th = t('bulletins_moderation.index.thead.title')
+            th = t('bulletins_moderation.index.thead.state')
+            th = t('bulletins_moderation.index.thead.created_at')
+            th = t('bulletins_moderation.index.thead.actions')
+        tbody
+          - @bulletins.each do |bulletin|
+            tr
+              td = link_to bulletin.title, bulletin_path(bulletin)
+              td = bulletin.state_label
+              td = distance_of_time_in_words(bulletin.created_at, Time.current)
+              td
+                = link_to t('bulletins_moderation.index.button.publish'), published_admin_path(bulletin),
+                 data: { turbo_method: :patch }, class: 'me-1'
+                = link_to t('bulletins_moderation.index.button.reject'), rejected_admin_path(bulletin),
+                 data: { turbo_method: :patch }, class: 'me-1'
+                = link_to t('bulletins_moderation.index.button.archive'), archive_admin_path(bulletin),
+                 data: { turbo_method: :patch }, class: 'text-danger'

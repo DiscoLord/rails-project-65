@@ -1,0 +1,12 @@
+ru:
+  bulletins:
+    index:
+      title: 'Объявления'
+      thead:
+        title: 'Заголовок'
+        state: 'Состояние'
+        created_at: 'Дата создания'
+        actions: 'Действия'
+      button:
+        show: 'Показать'
+        archive: 'В архив'

@@ -1,11 +1,10 @@
 = simple_form_for @bulletin do |f|
-  = f.input :title, label: 'Заголовок', input_html: { class: 'form-control string required' }
-  = f.input :description, label: 'Описание', as: :text, input_html: { class: 'form-control text required' }
+  = f.input :title, input_html: { class: 'form-control string required' }
+  = f.input :description, as: :text, input_html: { class: 'form-control text required' }
   = f.input :category_id,
       required: true,
-      label: 'Категория',
       collection: @categories.map { |c| [c.name, c.id] },
       input_html: { class: 'form-control select required' }
-  = f.input :image, as: :file, label: 'Изображение', input_html: { class: 'form-control file optional' }
+  = f.input :image, as: :file, input_html: { class: 'form-control file optional' }
 
   = f.submit class: 'mt-4 btn btn-primary'

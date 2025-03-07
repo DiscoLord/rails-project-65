@@ -1,5 +1,10 @@
 ru:
   shared:
+    admin:
+      menu:
+        moderation: 'Обьявления на модерации'
+        index: 'Все объявления'
+        categories: 'Все категории'
     nav:
       title: 'Доска объявлений'
       home: 'Главная'
@@ -7,6 +12,7 @@ ru:
       login: 'Вход'
       logout: 'Выход'
       admin: 'Админка'
+      profile: 'Профиль'
     footer:
       text: 'Хекслет'
     flash:
@@ -15,6 +21,12 @@ ru:
     bulletin:
       flash:
         notice: 'Объявление было создано'
+        update: 'Объявление было обновлено'
+        notice:
+          send_to_moderation: 'Объявление отправлено на модерацию'
+          publish: 'Объявление было опубликовано'
+          reject: 'Объявление было отклонено'
+          archive: 'Объявление было архивировано'
     category:
       flash:
         notice:

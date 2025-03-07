@@ -1,0 +1,15 @@
+ru:
+  profile:
+    index:
+      title: 'Мои объявления'
+      thead:
+        title: 'Заголовок'
+        state: 'Состояние'
+        created_at: 'Дата создания'
+        actions: 'Действия'
+      button:
+        add: 'Добавить объявление'
+        show: 'Показать'
+        edit: 'Редактировать'
+        send_to_moderation: 'Отправить на модерацию'
+        archive: 'В архив'

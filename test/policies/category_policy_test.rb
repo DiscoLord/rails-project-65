@@ -3,12 +3,6 @@
 require 'test_helper'
 
 class CategoryPolicyTest < ActiveSupport::TestCase
-  def setup
-    @user = users(:one)
-    @admin = users(:two)
-    @category = categories(:one)
-  end
-
   test 'admin can access index category' do
     assert_predicate CategoryPolicy.new(@admin, Category.new), :index?
   end

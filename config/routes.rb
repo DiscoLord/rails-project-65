@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# rubocop:disable Metrics/BlockLength
+
 Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -20,10 +22,27 @@ Rails.application.routes.draw do
     get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
     delete 'logout', to: 'auth#destroy', as: :logout
 
-    resources :bulletins, only: %i[index show new create]
+    resources :bulletins, except: :destroy do
+      member do
+        patch :send_to_moderation
+        patch :archive
+      end
+    end
+
+    get '/profile', to: 'profile#index'
 
     scope module: 'admin', path: 'admin' do
       resources :categories, except: :show
+      get '/', to: 'bulletins_moderation#index', as: 'bulletins_moderation'
+
+      resources :bulletins, as: 'admin', only: [:index] do
+        member do
+          patch :published
+          patch :rejected
+          patch :archive
+        end
+      end
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

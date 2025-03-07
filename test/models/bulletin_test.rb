@@ -3,11 +3,6 @@
 require 'test_helper'
 
 class BulletinTest < ActiveSupport::TestCase
-  def setup
-    @user = users(:one)
-    @category = categories(:one)
-  end
-
   test 'should not be valid without a title' do
     bulletin = Bulletin.new(title: nil, description: 'Valid Description', user: @user, category: @category)
 

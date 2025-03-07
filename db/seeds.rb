@@ -1,16 +1,27 @@
 # frozen_string_literal: true
 
-image_files = Dir['./public/images/*.jpg']
+Rails.logger.debug 'Наполняем БД'
 
-5.times do
-  user = User.create!(name: Faker::Name.name, email: Faker::Internet.email)
-  category_name = Faker::Commerce.department(max: 1)
-  category = Category.find_or_create_by!(name: category_name)
-  image = File.open(image_files.sample)
-  Bulletin.create(title: Faker::Lorem.sentence,
-                  description: Faker::Lorem.paragraph,
-                  user: user,
-                  category: category,
-                  image: image)
-  image.close
+image_files = Dir['./public/images/*.{jpg,png}']
+state = %w[draft published archived rejected under_moderation]
+
+10.times do
+  Category.create(name: Faker::Lorem.word)
 end
+
+t = rand(30..100)
+
+t.times do
+  user = User.create!(name: Faker::Name.name, email: Faker::Internet.email)
+  File.open(image_files.sample, 'rb') do |image|
+    category = Category.all.sample
+    state_r = state.sample
+
+    Bulletin.create!(title: Faker::Food.allergen, description: Faker::Food.description,
+                     user: user, category: category, image: image, state: state_r)
+  end
+rescue ActiveRecord::RecordInvalid => e
+  Rails.logger.error "Ошибка при создании пользователя или объявления: #{e.message}"
+end
+
+Rails.logger.debug 'БД наполнена'
