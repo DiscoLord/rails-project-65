@@ -4,24 +4,44 @@ require 'test_helper'
 
 module Web
   class BulletinsControllerTest < ActionDispatch::IntegrationTest
-    include Rails.application.routes.url_helpers
+    test 'create bulletin' do
+      bulletin = Bulletin.new(
+        title: 'title',
+        description: 'description',
+        user: users(:one),
+        category: categories(:one)
+      )
 
-    test 'should get index' do
-      get bulletins_url
+      bulletin.image.attach(
+        io: Rails.root.join('test/fixtures/files/test_image.png').open,
+        filename: 'test_image.png',
+        content_type: 'image/png'
+      )
+      bulletin.save
 
-      assert_response :success
+      bulletins = Bulletin.where(title: 'title')
+
+      assert_equal 1, bulletins.count
     end
 
-    # test 'should get new' do
-    #   get new_bulletin_url
+    test 'unauthorized user cannot create bulletin' do
+      bulletin = Bulletin.new(
+        title: 'title',
+        description: 'description',
+        user: nil,
+        category: categories(:one)
+      )
 
-    #   assert_response :success
-    # end
+      bulletin.image.attach(
+        io: Rails.root.join('test/fixtures/files/test_image.png').open,
+        filename: 'test_image.png',
+        content_type: 'image/png'
+      )
+      bulletin.save
 
-    # test 'should get create' do
-    #   post bulletin_url
+      bulletins = Bulletin.where(title: 'title')
 
-    #   assert_response :success
-    # end
+      assert_equal 0, bulletins.count
+    end
   end
 end

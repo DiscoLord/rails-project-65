@@ -13,6 +13,6 @@ module AuthenticationConcern
   end
 
   def authenticate_user!
-    redirect_to login_path, alert: t('please_log_in') unless current_user
+    redirect_to root_path unless current_user
   end
 end

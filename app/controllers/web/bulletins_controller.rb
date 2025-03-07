@@ -6,7 +6,7 @@ module Web
     before_action :authenticate_user!, only: %i[new create]
 
     def index
-      @bulletins = Bulletin.includes(:user)
+      @bulletins = Bulletin.includes(:user).order(created_at: :desc)
     end
 
     def show
@@ -24,16 +24,16 @@ module Web
       @categories = Category.all
 
       if @bulletin.save
-        redirect_to @bulletin
+        redirect_to @bulletin, notice: I18n.t('shared.bulletin.flash.notice')
       else
-        render :new
+        render :new, status: :unprocessable_entity
       end
     end
 
     private
 
     def bulletin_params
-      params.require(:bulletin).permit(:title, :description, :category_id)
+      params.require(:bulletin).permit(:title, :description, :category_id, :image)
     end
   end
 end

@@ -17,3 +17,39 @@ main {
 footer {
   flex-shrink: 0;
 }
+
+.bulletin-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.image-container {
+  max-width: 200px;
+  max-height: 400px;
+  overflow: hidden;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  margin-bottom: 1rem;
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 0.5rem;
+  }
+}
+
+.field_with_errors {
+  input, textarea, select {
+    border-color: #dc3545;
+  }
+}
+
+.error {
+  color: #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}

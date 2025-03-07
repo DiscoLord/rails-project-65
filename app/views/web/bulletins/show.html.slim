@@ -5,6 +5,8 @@
       hr
     .row
       .col-8
+        .image_container 
+            = image_tag @bulletin.image, class: 'img-thumbnail'
         p = @bulletin.description
       .col-4
         .card
