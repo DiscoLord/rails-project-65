@@ -5,19 +5,19 @@
 [![Actions Status](https://github.com/DiscoLord/rails-project-65/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/DiscoLord/rails-project-65/actions)
 
 ### **Production**
-🔗 **[Live Demo]()**
+🔗 **[Live Demo](boris-hexlet-ads.onrender.com)**
 
 ---
 
 ## **Overview**
-A simple **ad platform** built with **Ruby on Rails**, featuring user authentication, categorized user ads with photos and search.
+A simple **ad platform** built with **Ruby on Rails**, featuring user authentication, categorized user ads with photos, search and admin panel.
 
 ---
 
 ## **Installation**
 ```sh
 git clone https://github.com/DiscoLord/rails-project-65.git
-cd rails-project-64
+cd rails-project-65
 bundle install
 yarn install
 bin/rails db:setup
@@ -45,4 +45,4 @@ git push origin main
 
 ## **Contact**
 - **GitHub**: [DiscoLord](https://github.com/DiscoLord)
-- **Live App**: [boris-hexlet-blog.onrender.com]()
+- **Live App**: [[boris-hexlet-ad.onrender.com](boris-hexlet-ad.onrender.com)]
