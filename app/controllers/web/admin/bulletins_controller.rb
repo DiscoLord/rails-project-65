@@ -16,8 +16,8 @@ module Web
                        .order(created_at: :desc)
                        .page(params[:page])
                        .per(25)
-        template = params[:template].in?(ALLOWED_TEMPLATES) ? params[:template] : 'index'
-        render action: template
+        template = params[:template].in?(ALLOWED_TEMPLATES) ? params[:template] : :index
+        render template
       end
 
       def published
