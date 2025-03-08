@@ -6,7 +6,10 @@ module Web
 
     def index
       @q = current_user.bulletins.ransack(params[:q])
-      @bulletins = @q.result(distinct: true).order(created_at: :desc)
+      @bulletins = @q.result(distinct: true)
+                     .order(created_at: :desc)
+                     .page(params[:page])
+                     .per(25)
     end
   end
 end

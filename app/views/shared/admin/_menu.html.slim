@@ -1,7 +1,7 @@
 ul.nav.flex-column.nav-pills
   li.nav-item
-    = link_to t('shared.admin.menu.moderation'), bulletins_moderation_path,
-     class: "nav-link link-dark#{' active' if current_page?(bulletins_moderation_path)}"
+    = link_to t('shared.admin.menu.moderation'), moderation_bulletins_path,
+     class: "nav-link link-dark#{' active' if current_page?(moderation_bulletins_path)}"
   li.nav-item
     = link_to t('shared.admin.menu.index'), admin_index_path,
      class: "nav-link link-dark#{' active' if current_page?(admin_index_path)}"

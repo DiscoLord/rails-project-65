@@ -11,6 +11,7 @@ ru:
       button:
         edit: 'Редактировать'
         delete: 'Удалить'
+      confirm_delete: 'Подтвердить удаление'
     new:
       title: 'Новая категория'
   activerecord:

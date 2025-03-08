@@ -12,7 +12,7 @@ ru:
       login: 'Вход'
       logout: 'Выход'
       admin: 'Админка'
-      profile: 'Профиль'
+      profile: 'Мои объявления'
     footer:
       text: 'Хекслет'
     flash:
@@ -22,11 +22,12 @@ ru:
       flash:
         notice: 'Объявление было создано'
         update: 'Объявление было обновлено'
-        notice:
-          send_to_moderation: 'Объявление отправлено на модерацию'
-          publish: 'Объявление было опубликовано'
-          reject: 'Объявление было отклонено'
-          archive: 'Объявление было архивировано'
+        category:
+          notice:
+            send_to_moderation: 'Объявление отправлено на модерацию'
+            publish: 'Объявление было опубликовано'
+            reject: 'Объявление было отклонено'
+            archive: 'Объявление было архивировано'
     category:
       flash:
         notice:

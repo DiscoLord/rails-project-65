@@ -6,7 +6,7 @@ image_files = Dir['./public/images/*.{jpg,png}']
 state = %w[draft published archived rejected under_moderation]
 
 10.times do
-  Category.create(name: Faker::Lorem.word)
+  Category.create(name: Faker::Lorem.unique.word)
 end
 
 t = rand(30..100)

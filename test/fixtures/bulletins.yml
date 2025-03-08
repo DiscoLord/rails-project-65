@@ -6,6 +6,7 @@ one:
   image: MyString1
   category: one
   user: one
+  state: draft
 
 two:
   title: MyString2
@@ -13,3 +14,4 @@ two:
   image: MyString2
   category: two
   user: two
+  state: draft

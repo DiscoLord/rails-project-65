@@ -1,12 +1,3 @@
 ru:
   head:
     title: 'Доска объявлений'
-  activerecord:
-    attributes:
-      bulletin:
-        state:
-          archived: 'В архиве'
-          draft: 'Черновик'
-          published: 'Опубликовано'
-          under_moderation: 'На модерации'
-          rejected: 'Возвращено'

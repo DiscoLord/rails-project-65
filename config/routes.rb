@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
     scope module: 'admin', path: 'admin' do
       resources :categories, except: :show
-      get '/', to: 'bulletins_moderation#index', as: 'bulletins_moderation'
+      get '/', to: 'bulletins#index', defaults: { template: 'moderation' }, as: :moderation_bulletins
 
       resources :bulletins, as: 'admin', only: [:index] do
         member do

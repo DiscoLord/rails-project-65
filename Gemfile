@@ -69,6 +69,7 @@ end
 
 gem 'aasm'
 gem 'faker'
+gem 'kaminari'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 gem 'pundit'

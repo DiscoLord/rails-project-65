@@ -7,6 +7,8 @@ ru:
         state: 'Состояние'
         created_at: 'Дата создания'
         actions: 'Действия'
+      confirm:
+        archive: 'Подтвердить архивацию'
       button:
         add: 'Добавить объявление'
         show: 'Показать'

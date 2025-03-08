@@ -9,25 +9,30 @@ module Web
       def index
         authorize Bulletin
         @q = Bulletin.ransack(params[:q])
-        @bulletins = @q.result(distinct: true).includes(:user).order(created_at: :desc)
+        @bulletins = @q.result(distinct: true)
+                        .includes(:user)
+                        .order(created_at: :desc)
+                        .page(params[:page])
+                        .per(25)
+        render params[:template] || :index
       end
 
       def published
         authorize @bulletin
         @bulletin.approve!
-        redirect_to request.url, notice: I18n.t('shared.bulletin.flash.notice.publish')
+        redirect_to request.url, notice: I18n.t('shared.bulletin.flash.category.notice.publish')
       end
 
       def rejected
         authorize @bulletin
         @bulletin.reject!
-        redirect_to request.url, notice: I18n.t('shared.bulletin.flash.notice.reject')
+        redirect_to request.url, notice: I18n.t('shared.bulletin.flash.category.notice.reject')
       end
 
       def archive
         authorize @bulletin
         @bulletin.archive!
-        redirect_to request.url, notice: I18n.t('shared.bulletin.flash.notice.archive')
+        redirect_to request.url, notice: I18n.t('shared.bulletin.flash.category.notice.archive')
       end
 
       private

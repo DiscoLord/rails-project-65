@@ -7,6 +7,10 @@ ru:
         state: 'Состояние'
         created_at: 'Дата создания'
         actions: 'Действия'
+      confirm:
+        publish: 'Подтвердить публикацию'
+        reject: 'Подтвердить отклонение'
+        archive: 'Подтвердить архивацию'
       button:
         publish: 'Опубликовать'
         reject: 'Вернуть'

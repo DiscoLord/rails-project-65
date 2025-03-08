@@ -20,4 +20,5 @@
                 td
                   = link_to t('categories.index.button.edit'), edit_category_path(category), class: 'me-1'
                   = link_to t('categories.index.button.delete'), category,
-                    data: { turbo_method: :delete }, class: 'text-danger'
+                    data: { turbo_method: :delete, turbo_confirm: t('categories.index.confirm_delete') },
+                     class: 'text-danger'

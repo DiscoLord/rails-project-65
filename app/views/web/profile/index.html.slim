@@ -16,11 +16,12 @@ table.table.table-borderless
           td = bulletin.state_label
           td = distance_of_time_in_words(bulletin.created_at, Time.current)
           td
-            = link_to t('profile.index.button.show'), bulletin_path(bulletin), class: 'me-1'
-            = link_to t('profile.index.button.edit'), edit_bulletin_path(bulletin), class: 'me-1'
+            = link_to t('profile.index.button.show'), bulletin_path(bulletin), class: 'me-2'
+            = link_to t('profile.index.button.edit'), edit_bulletin_path(bulletin), class: 'me-2'
             - if bulletin.state == 'draft'
               = link_to t('profile.index.button.send_to_moderation'), send_to_moderation_bulletin_path(bulletin),
-               data: { turbo_method: :patch }, class: 'me-1'
+               data: { turbo_method: :patch }, class: 'me-2'
             - unless bulletin.archived?
               = link_to t('profile.index.button.archive'), archive_bulletin_path(bulletin),
-               data: { turbo_method: :patch }, class: 'text-danger'
+               data: { turbo_method: :patch, turbo_confirm: t('profile.index.confirm.archive') }, class: 'text-danger'
+= paginate @bulletins
