@@ -10,7 +10,8 @@ module Web
 
     def index
       authorize Bulletin
-      @bulletins = Bulletin.published.order(created_at: :desc)
+      @q = Bulletin.ransack(params[:q])
+      @bulletins = @q.result(distinct: true).includes(:user).published.order(created_at: :desc)
     end
 
     def show

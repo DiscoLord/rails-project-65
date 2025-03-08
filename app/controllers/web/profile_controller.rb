@@ -5,7 +5,8 @@ module Web
     include AuthenticationConcern
 
     def index
-      @bulletins = current_user.bulletins.order(created_at: :desc)
+      @q = current_user.bulletins.ransack(params[:q])
+      @bulletins = @q.result(distinct: true).order(created_at: :desc)
     end
   end
 end

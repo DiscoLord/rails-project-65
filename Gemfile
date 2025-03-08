@@ -72,6 +72,7 @@ gem 'faker'
 gem 'omniauth-github'
 gem 'omniauth-rails_csrf_protection'
 gem 'pundit'
+gem 'ransack'
 gem 'rollbar'
 gem 'rubocop-capybara', require: false
 gem 'rubocop-minitest', require: false

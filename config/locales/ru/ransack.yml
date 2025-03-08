@@ -1,0 +1,32 @@
+ru:
+  bulletins:
+    search_form:
+      title: 'Искать по названию объявления'
+      category: 'Выбрать категорию'
+      button:
+        search: 'Искать'
+        reset: 'Сброc'
+  profile:
+    bulletins:
+      search_form:
+        title: 'Искать по названию объявления'
+        state: 'По состоянию'
+        button:
+          search: 'Искать'
+          reset: 'Сброc'
+  profile:
+    bulletins:
+      search_form:
+        title: 'Искать по названию объявления'
+        state: 'По состоянию'
+        button:
+          search: 'Искать'
+          reset: 'Сброc'
+  admin:
+    bulletins:
+      search_form:
+        title: 'Искать по названию объявления'
+        state: 'По состоянию'
+        button:
+          search: 'Искать'
+          reset: 'Сброc'

@@ -1,0 +1,16 @@
+.p-3.bg-light
+  = search_form_for @q do |f|
+    .row.my-2
+      .col-6
+        .form-group.mb-3.string.required.q_title_cont
+          = f.text_field :title_cont, class: 'form-control', id: 'q_title_cont'
+          small.form-text.text-muted = t('bulletins.search_form.title')
+      .col-4
+        .form-group.mb-3.select.required.q_category_id_eq
+          = f.select :category_id_eq, options_for_select(Category.pluck(:name, :id),
+           params.dig(:q, :category_id_eq)),
+           { include_blank: '' }, class: 'form-control select required', id: 'q_category_id_eq'
+          small.form-text.text-muted = t('bulletins.search_form.category')
+      .col-2
+        = f.submit t('bulletins.search_form.button.search'), class: 'btn btn-primary me-2'
+        = link_to t('bulletins.search_form.button.reset'), bulletins_path, class: 'btn btn-outline-primary'

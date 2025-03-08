@@ -3,6 +3,7 @@
     .mb-4
       h2 = t('bulletins.index.title')
       hr
+      = render 'search_form'
     .row.mt-2
       - @bulletins.each do |bulletin|
         .col-3.pt-2
