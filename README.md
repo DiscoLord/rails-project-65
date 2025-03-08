@@ -1,4 +1,4 @@
-# **Rails Project: Blogging Platform**
+# **Rails Project: Quick Ads Platform**
 
 ### Hexlet Tests and Linter Status:
 [![Build](https://github.com/DiscoLord/rails-project-65/actions/workflows/ci.yml/badge.svg)](https://github.com/DiscoLord/rails-project-65/actions)  
