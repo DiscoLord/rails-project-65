@@ -20,6 +20,7 @@ AllCops:
     - 'vendor/bundle/**/*'
 
 Metrics/BlockLength:
+  Max: 30
   Exclude:
     - 'config/initializers/simple_form_bootstrap.rb'
     - 'config/environments/*'
