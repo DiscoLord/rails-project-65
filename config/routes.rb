@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     get 'auth/:provider/callback', to: 'auth#callback', as: :callback_auth
     delete 'logout', to: 'auth#destroy', as: :logout
 
+    # Bulletin routes
     resources :bulletins, except: :destroy do
       member do
         patch :send_to_moderation
@@ -29,16 +30,17 @@ Rails.application.routes.draw do
       end
     end
 
+    # Profile routes
     get '/profile', to: 'profile#index'
 
+    # Admin routes
     scope module: 'admin', path: 'admin' do
-      resources :categories, except: :show
+      resources :categories, except: [:show], as: 'admin_categories'
       get '/', to: 'bulletins#index', defaults: { template: 'moderation' }, as: :moderation_bulletins
-
-      resources :bulletins, as: 'admin', only: [:index] do
+      resources :bulletins, as: 'admin_bulletins', only: [:index] do
         member do
-          patch :published
-          patch :rejected
+          patch :publish
+          patch :reject
           patch :archive
         end
       end

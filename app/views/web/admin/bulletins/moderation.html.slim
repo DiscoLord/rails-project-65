@@ -18,13 +18,13 @@
               td = bulletin.state_label
               td = distance_of_time_in_words(bulletin.created_at, Time.current)
               td
-                = link_to t('bulletins_on_moderation.index.button.publish'), published_admin_path(bulletin),
+                = link_to t('bulletins_on_moderation.index.button.publish'), publish_admin_bulletin_path(bulletin),
                  data: { turbo_method: :patch, turbo_confirm: t('bulletins_on_moderation.index.confirm.publish') },
                   class: 'me-1'
-                = link_to t('bulletins_on_moderation.index.button.reject'), rejected_admin_path(bulletin),
+                = link_to t('bulletins_on_moderation.index.button.reject'), reject_admin_bulletin_path(bulletin),
                  data: { turbo_method: :patch, turbo_confirm: t('bulletins_on_moderation.index.confirm.reject') },
                   class: 'me-1'
-                = link_to t('bulletins_on_moderation.index.button.archive'), archive_admin_path(bulletin),
+                = link_to t('bulletins_on_moderation.index.button.archive'), archive_admin_bulletin_path(bulletin),
                  data: { turbo_method: :patch, turbo_confirm: t('bulletins_on_moderation.index.confirm.archive') },
                   class: 'text-danger'
       = paginate @bulletins

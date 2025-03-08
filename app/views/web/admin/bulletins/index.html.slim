@@ -21,8 +21,7 @@
               td
                 = link_to t('bulletins.index.button.show'), bulletin_path(bulletin), class: 'me-1'
                 - unless bulletin.archived?
-                  = link_to t('bulletins.index.button.archive'), archive_admin_path(bulletin),
+                  = link_to t('bulletins.index.button.archive'), archive_admin_bulletin_path(bulletin),
                   data: { turbo_method: :patch, turbo_confirm: t('bulletins.index.confirm.archive') },
                    class: 'text-danger'
-                  = paginate @bulletins
       = paginate @bulletins

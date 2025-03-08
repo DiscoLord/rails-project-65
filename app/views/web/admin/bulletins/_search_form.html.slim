@@ -1,4 +1,4 @@
-= search_form_for @q, url: admin_index_path, method: :get do |f|
+= search_form_for @q, url: admin_bulletins_path, method: :get do |f|
   .row.my-2
     .col-6
       .form-group.mb-3.string.required.q_title_cont
@@ -13,4 +13,4 @@
         small.form-text.text-muted = t('admin.bulletins.search_form.state')
     .col-3
       = f.submit t('admin.bulletins.search_form.button.search'), class: 'btn btn-primary me-2'
-      = link_to t('admin.bulletins.search_form.button.reset'), admin_index_path, class: 'btn btn-outline-primary'
+      = link_to t('admin.bulletins.search_form.button.reset'), admin_bulletins_path, class: 'btn btn-outline-primary'
