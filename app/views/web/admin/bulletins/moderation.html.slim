@@ -3,14 +3,14 @@
     .col-md-3
       = render 'shared/admin/menu'
     .col-md-9
-      h1 = t('bulletins_on_moderation.index.title')
+      h1 = t('bulletins_moderation.index.title')
       table.table.table-borderless
         thead
           tr
-            th = t('bulletins_on_moderation.index.thead.title')
-            th = t('bulletins_on_moderation.index.thead.state')
-            th = t('bulletins_on_moderation.index.thead.created_at')
-            th = t('bulletins_on_moderation.index.thead.actions')
+            th = t('bulletins_moderation.index.thead.title')
+            th = t('bulletins_moderation.index.thead.state')
+            th = t('bulletins_moderation.index.thead.created_at')
+            th = t('bulletins_moderation.index.thead.actions')
         tbody
           - @bulletins.under_moderation.each do |bulletin|
             tr
@@ -18,13 +18,13 @@
               td = bulletin.state_label
               td = distance_of_time_in_words(bulletin.created_at, Time.current)
               td
-                = link_to t('bulletins_on_moderation.index.button.publish'), publish_admin_bulletin_path(bulletin),
-                 data: { turbo_method: :patch, turbo_confirm: t('bulletins_on_moderation.index.confirm.publish') },
+                = link_to t('bulletins_moderation.index.button.publish'), publish_admin_bulletin_path(bulletin),
+                 data: { turbo_method: :patch, turbo_confirm: t('bulletins_moderation.index.confirm.publish') },
                   class: 'me-1'
-                = link_to t('bulletins_on_moderation.index.button.reject'), reject_admin_bulletin_path(bulletin),
-                 data: { turbo_method: :patch, turbo_confirm: t('bulletins_on_moderation.index.confirm.reject') },
+                = link_to t('bulletins_moderation.index.button.reject'), reject_admin_bulletin_path(bulletin),
+                 data: { turbo_method: :patch, turbo_confirm: t('bulletins_moderation.index.confirm.reject') },
                   class: 'me-1'
-                = link_to t('bulletins_on_moderation.index.button.archive'), archive_admin_bulletin_path(bulletin),
-                 data: { turbo_method: :patch, turbo_confirm: t('bulletins_on_moderation.index.confirm.archive') },
+                = link_to t('bulletins_moderation.index.button.archive'), archive_admin_bulletin_path(bulletin),
+                 data: { turbo_method: :patch, turbo_confirm: t('bulletins_moderation.index.confirm.archive') },
                   class: 'text-danger'
       = paginate @bulletins

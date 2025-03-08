@@ -3,10 +3,6 @@
 require 'test_helper'
 
 class BulletinPolicyTest < ActiveSupport::TestCase
-  test 'user can index' do
-    assert_predicate BulletinPolicy.new(@user, @bulletin), :index?
-  end
-
   test 'admin can index' do
     assert_predicate BulletinPolicy.new(@admin, @bulletin), :index?
   end
@@ -60,18 +56,18 @@ class BulletinPolicyTest < ActiveSupport::TestCase
   end
 
   test 'user cannot reject' do
-    assert_not BulletinPolicy.new(@user, @bulletin).rejected?
+    assert_not BulletinPolicy.new(@user, @bulletin).reject?
   end
 
   test 'admin can reject' do
-    assert_predicate BulletinPolicy.new(@admin, @bulletin), :rejected?
+    assert_predicate BulletinPolicy.new(@admin, @bulletin), :reject?
   end
 
   test 'user cannot publish' do
-    assert_not BulletinPolicy.new(@user, @bulletin).published?
+    assert_not BulletinPolicy.new(@user, @bulletin).publish?
   end
 
   test 'admin can publish' do
-    assert_predicate BulletinPolicy.new(@admin, @bulletin), :published?
+    assert_predicate BulletinPolicy.new(@admin, @bulletin), :publish?
   end
 end

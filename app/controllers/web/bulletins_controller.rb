@@ -9,7 +9,6 @@ module Web
     before_action :authenticate_user!, only: %i[new create edit update]
 
     def index
-      authorize Bulletin
       @q = Bulletin.ransack(params[:q])
       @bulletins = @q.result(distinct: true)
                      .includes(:user)

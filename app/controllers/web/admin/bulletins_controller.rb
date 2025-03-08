@@ -20,22 +20,35 @@ module Web
         render action: template
       end
 
-      def published
+      def publish
         authorize @bulletin
-        @bulletin.approve!
-        redirect_to request.url, notice: I18n.t('shared.bulletin.flash.category.notice.publish')
+        if @bulletin.may_publish?
+          @bulletin.publish!
+          redirect_to request.url, notice: I18n.t('shared.bulletin.flash.category.notice.publish')
+        else
+          redirect_to request.url, notice: I18n.t('controllers.errors')
+        end
       end
 
-      def rejected
+      def reject
         authorize @bulletin
-        @bulletin.reject!
-        redirect_to request.url, notice: I18n.t('shared.bulletin.flash.category.notice.reject')
+
+        if @bulletin.may_reject?
+          @bulletin.reject!
+          redirect_to request.url, notice: I18n.t('shared.bulletin.flash.category.notice.reject')
+        else
+          redirect_to request.url, notice: I18n.t('controllers.errors')
+        end
       end
 
       def archive
         authorize @bulletin
-        @bulletin.archive!
-        redirect_to request.url, notice: I18n.t('shared.bulletin.flash.category.notice.archive')
+        if @bulletin.may_archive?
+          @bulletin.archive!
+          redirect_to request.url, notice: I18n.t('shared.bulletin.flash.category.notice.archive')
+        else
+          redirect_to request.url, notice: I18n.t('controllers.errors')
+        end
       end
 
       private
