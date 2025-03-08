@@ -6,6 +6,8 @@ module Web
       include AASM
       before_action :set_bulletin, except: :index
 
+      ALLOWED_TEMPLATES = %w[index moderation].freeze
+
       def index
         authorize Bulletin
         @q = Bulletin.ransack(params[:q])
@@ -14,7 +16,8 @@ module Web
                        .order(created_at: :desc)
                        .page(params[:page])
                        .per(25)
-        render params[:template] || :index
+        template = params[:template].in?(ALLOWED_TEMPLATES) ? params[:template] : 'index'
+        render action: template
       end
 
       def published
