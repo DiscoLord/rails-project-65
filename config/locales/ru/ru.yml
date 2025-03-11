@@ -1,3 +1,8 @@
 ru:
-  head:
-    title: 'Доска объявлений'
+  web:
+    auth:
+      callback:
+        welcome: "Добро пожаловать, %{name}!"
+        error: "Ошибка входа: %{message}"
+      destroy:
+        logged_out: "Вы вышли"

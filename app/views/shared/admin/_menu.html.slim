@@ -1,10 +1,10 @@
 ul.nav.flex-column.nav-pills
   li.nav-item
-    = link_to t('shared.admin.menu.moderation'), moderation_bulletins_path,
+    = link_to t('.moderation'), moderation_bulletins_path,
      class: "nav-link link-dark#{' active' if current_page?(moderation_bulletins_path)}"
   li.nav-item
-    = link_to t('shared.admin.menu.index'), admin_bulletins_path,
+    = link_to t('.index'), admin_bulletins_path,
      class: "nav-link link-dark#{' active' if current_page?(admin_bulletins_path)}"
   li.nav-item
-    = link_to t('shared.admin.menu.categories'), admin_categories_path,
+    = link_to t('.categories'), admin_categories_path,
      class: "nav-link link-dark#{' active' if current_page?(admin_categories_path)}"
