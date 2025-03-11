@@ -6,10 +6,12 @@
         ul.nav.nav-pills.flex-grow-1.navbar-nav.me-auto
           li.nav-item.me-2
             a = link_to t('shared.nav.home'), root_path, class: 'nav-link text-dark'
-          li.nav-item.me-2
-            a = link_to t('shared.nav.profile'), profile_path, class: 'nav-link text-dark'
-          li.nav-item.me-2
-            a.nav-link.text-dark href="/bulletins/new" Добавить
+          - if session[:user_id]
+            li.nav-item.me-2
+              a = link_to t('shared.nav.profile'), profile_path, class: 'nav-link text-dark'
+          - if session[:user_id]
+            li.nav-item.me-2
+              a.nav-link.text-dark href="/bulletins/new" Добавить
     ul.nav.nav-pills
       - if current_user&.admin?
         li.nav-item.me-2
