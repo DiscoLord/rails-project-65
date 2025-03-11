@@ -1,4 +1,6 @@
 ru:
+  head:
+    title: "Доска объявлений"
   web:
     auth:
       callback:
