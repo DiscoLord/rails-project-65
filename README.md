@@ -5,7 +5,7 @@
 [![Actions Status](https://github.com/DiscoLord/rails-project-65/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/DiscoLord/rails-project-65/actions)
 
 ### **Production**
-🔗 **[Live Demo](boris-hexlet-ads.onrender.com)**
+🔗 **[Live Demo](https://boris-hexlet-ad.onrender.com)**
 
 ---
 
@@ -45,4 +45,4 @@ git push origin main
 
 ## **Contact**
 - **GitHub**: [DiscoLord](https://github.com/DiscoLord)
-- **Live App**: [[boris-hexlet-ad.onrender.com](boris-hexlet-ad.onrender.com)]
+- **Live App**: [boris-hexlet-ad.onrender.com](https://boris-hexlet-ad.onrender.com)
