@@ -5,12 +5,13 @@ module Web
     def callback
       auth_data = request.env['omniauth.auth']
       user = User.find_or_initialize_by(email: auth_data['info']['email'])
-      user.name = auth_data['info']['name'] || user.name
+      user.name = auth_data['info']['name'] || user.name || "#{Faker::Adjective}  #{Faker::Creature::Bird}"
       user.save!
       session[:user_id] = user.id
       redirect_to root_path, notice: t('.welcome', name: user.name)
-    # rescue StandardError => e
-    #   redirect_to root_path, alert: t('.error', message: e.message)
+    rescue StandardError => e
+      redirect_to root_path, alert: t('.error', message: e.message)
+      Rollbar.warning("Auth error: #{e.message}")
     end
 
     def destroy
