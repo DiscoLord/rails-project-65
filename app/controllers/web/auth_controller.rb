@@ -9,8 +9,8 @@ module Web
       user.save!
       session[:user_id] = user.id
       redirect_to root_path, notice: t('.welcome', name: user.name)
-    rescue StandardError => e
-      redirect_to root_path, alert: t('.error', message: e.message)
+    # rescue StandardError => e
+    #   redirect_to root_path, alert: t('.error', message: e.message)
     end
 
     def destroy
