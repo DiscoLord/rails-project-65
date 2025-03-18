@@ -45,5 +45,8 @@ Style/AsciiComments:
 Style/Documentation:
   Enabled: false
 
+Minitest/MultipleAssertions:
+  Enabled: false
+
 Style/MethodCallWithArgsParentheses:
   EnforcedStyle: require_parentheses

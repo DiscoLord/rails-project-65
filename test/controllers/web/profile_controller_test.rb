@@ -32,7 +32,7 @@ module Web
       end
     end
 
-    test 'should get profile index and show only user bulletins' do # rubocop:disable Minitest/MultipleAssertions
+    test 'should get profile index and show only user bulletins' do
       get profile_path
 
       assert_response :success
@@ -42,7 +42,7 @@ module Web
       assert_no_match 'Other User Bulletin 0', response.body
     end
 
-    test 'profile index should display correct table headers' do # rubocop:disable Minitest/MultipleAssertions
+    test 'profile index should display correct table headers' do
       get profile_path
 
       assert_response :success
@@ -74,7 +74,7 @@ module Web
       assert_select 'table.table tbody tr', count: 25
     end
 
-    test 'profile index should display action links' do # rubocop:disable Minitest/MultipleAssertions
+    test 'profile index should display action links' do
       get profile_path
 
       assert_response :success
