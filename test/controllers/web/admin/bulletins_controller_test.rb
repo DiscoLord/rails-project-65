@@ -5,7 +5,7 @@ module Web
     class BulletinsControllerTest < ActionDispatch::IntegrationTest
       test 'admin can publish bulletin' do
         sign_in @admin
-        @bulletin = bulletins(:one) # Ensure bulletin is initialized
+        @bulletin = bulletins(:one)
 
         @bulletin.image.attach(
           io: Rails.root.join('test/fixtures/files/test_image.png').open,
@@ -13,7 +13,7 @@ module Web
           content_type: 'image/jpg'
         )
 
-        @bulletin.update!(state: 'under_moderation') # Ensure valid state transition
+        @bulletin.update!(state: 'under_moderation')
 
         patch publish_admin_bulletin_url(@bulletin)
 
@@ -35,7 +35,7 @@ module Web
           content_type: 'image/jpg'
         )
 
-        @bulletin.update!(state: 'published') # Already published
+        @bulletin.update!(state: 'published')
 
         patch publish_admin_bulletin_url(@bulletin)
 
@@ -123,16 +123,16 @@ module Web
           content_type: 'image/jpg'
         )
 
-        @bulletin.update!(state: 'under_moderation') # Ensure valid state transition
+        @bulletin.update!(state: 'under_moderation')
 
-        sign_in @user # Switch to a non-admin user
+        sign_in @user
 
         patch publish_admin_bulletin_url(@bulletin)
 
-        assert_response :redirect # Expect 302 Found
+        assert_response :redirect
         follow_redirect!
 
-        assert_response :success # Ensure redirected page loads correctly
+        assert_response :success
 
         assert_equal I18n.t('shared.flash.not_admin'), flash[:alert]
       end
